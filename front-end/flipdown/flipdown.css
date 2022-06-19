@@ -1,0 +1,429 @@
+/* Rotor group headings */
+.flipdown .rotor-group-heading:before {
+  color: #000000;
+}
+/* Delimeters */
+.flipdown .rotor-group:nth-child(n + 2):nth-child(-n + 3):before,
+.flipdown .rotor-group:nth-child(n + 2):nth-child(-n + 3):after {
+  background-color: #151515;
+}
+/* Rotor tops */
+.flipdown .rotor,
+.flipdown .rotor-top,
+.flipdown .rotor-leaf-front {
+  color: #ffffff;
+  background-color: #151515;
+}
+/* Rotor bottoms */
+.flipdown .rotor-bottom,
+.flipdown .rotor-leaf-rear {
+  color: #efefef;
+  background-color: #202020;
+}
+/* Hinge */
+.flipdown.flipdown__theme-dark .rotor:after {
+  border-top: solid 1px #151515;
+}
+.flipdown {
+  overflow: visible;
+  width: 510px;
+  height: 110px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.flipdown .rotor-group {
+  position: relative;
+  float: left;
+  padding-right: 30px;
+}
+
+.flipdown .rotor-group:last-child {
+  padding-right: 0;
+}
+
+.flipdown .rotor-group-heading:before {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
+  content: attr(data-before);
+}
+
+.flipdown .rotor-group:nth-child(2) .rotor-group-heading:before {
+  content: attr(data-before);
+}
+
+.flipdown .rotor-group:nth-child(3) .rotor-group-heading:before {
+  content: attr(data-before);
+}
+
+.flipdown .rotor-group:nth-child(4) .rotor-group-heading:before {
+  content: attr(data-before);
+}
+
+.flipdown .rotor-group:nth-child(n + 2):nth-child(-n + 3):before {
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  left: 115px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.flipdown .rotor-group:nth-child(n + 2):nth-child(-n + 3):after {
+  content: "";
+  position: absolute;
+  bottom: 50px;
+  left: 115px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.flipdown .rotor {
+  position: relative;
+  float: left;
+  width: 50px;
+  height: 80px;
+  margin: 0px 5px 0px 0px;
+  border-radius: 4px;
+  font-size: 4rem;
+  text-align: center;
+  perspective: 200px;
+}
+
+.flipdown .rotor:last-child {
+  margin-right: 0;
+}
+
+.flipdown .rotor-top,
+.flipdown .rotor-bottom {
+  overflow: hidden;
+  position: absolute;
+  width: 50px;
+  height: 40px;
+}
+
+.flipdown .rotor-leaf {
+  z-index: 1;
+  position: absolute;
+  width: 50px;
+  height: 80px;
+  transform-style: preserve-3d;
+  transition: transform 0s;
+}
+
+.flipdown .rotor-leaf.flipped {
+  transform: rotateX(-180deg);
+  transition: all 0.5s ease-in-out;
+}
+
+.flipdown .rotor-leaf-front,
+.flipdown .rotor-leaf-rear {
+  overflow: hidden;
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  margin: 0;
+  transform: rotateX(0deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flipdown .rotor-leaf-front {
+  line-height: 80px;
+  border-radius: 4px 4px 0px 0px;
+}
+
+.flipdown .rotor-leaf-rear {
+  line-height: 0px;
+  border-radius: 0px 0px 4px 4px;
+  transform: rotateX(-180deg);
+}
+
+.flipdown .rotor-top {
+  line-height: 80px;
+  border-radius: 4px 4px 0px 0px;
+}
+
+.flipdown .rotor-bottom {
+  bottom: 0;
+  line-height: 0px;
+  border-radius: 0px 0px 4px 4px;
+}
+
+.flipdown .rotor:after {
+  content: "";
+  z-index: 2;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 50px;
+  height: 40px;
+  border-radius: 0px 0px 4px 4px;
+}
+
+@media (max-width: 550px) {
+  .flipdown {
+    width: 312px;
+    height: 70px;
+  }
+
+  .flipdown .rotor {
+    font-size: 2.2rem;
+    margin-right: 3px;
+  }
+
+  .flipdown .rotor,
+  .flipdown .rotor-leaf,
+  .flipdown .rotor-leaf-front,
+  .flipdown .rotor-leaf-rear,
+  .flipdown .rotor-top,
+  .flipdown .rotor-bottom,
+  .flipdown .rotor:after {
+    width: 30px;
+  }
+
+  .flipdown .rotor-group {
+    padding-right: 20px;
+  }
+
+  .flipdown .rotor-group:last-child {
+    padding-right: 0px;
+  }
+
+  .flipdown .rotor-group-heading:before {
+    font-size: 0.8rem;
+    height: 20px;
+    line-height: 20px;
+  }
+
+  .flipdown .rotor-group:nth-child(n + 2):nth-child(-n + 3):before,
+  .flipdown .rotor-group:nth-child(n + 2):nth-child(-n + 3):after {
+    left: 69px;
+  }
+
+  .flipdown .rotor-group:nth-child(n + 2):nth-child(-n + 3):before {
+    bottom: 13px;
+    height: 8px;
+    width: 8px;
+  }
+
+  .flipdown .rotor-group:nth-child(n + 2):nth-child(-n + 3):after {
+    bottom: 29px;
+    height: 8px;
+    width: 8px;
+  }
+
+  .flipdown .rotor-leaf-front,
+  .flipdown .rotor-top {
+    line-height: 50px;
+  }
+
+  .flipdown .rotor-leaf,
+  .flipdown .rotor {
+    height: 50px;
+  }
+
+  .flipdown .rotor-leaf-front,
+  .flipdown .rotor-leaf-rear,
+  .flipdown .rotor-top,
+  .flipdown .rotor-bottom,
+  .flipdown .rotor:after {
+    height: 25px;
+  }
+}
+
+/* overwrite */
+.flipdown {
+  width: 205px;
+  height: 40px;
+}
+
+.flipdown .rotor {
+  font-size: 1.8rem;
+  margin-right: 3px;
+}
+
+.flipdown .rotor,
+.flipdown .rotor-leaf,
+.flipdown .rotor-leaf-front,
+.flipdown .rotor-leaf-rear,
+.flipdown .rotor-top,
+.flipdown .rotor-bottom,
+.flipdown .rotor:after {
+  width: 20px;
+}
+
+.flipdown .rotor-group {
+  padding-right: 10px;
+}
+
+.flipdown .rotor-group:last-child {
+  padding-right: 0px;
+}
+
+.flipdown .rotor-group-heading:before {
+  font-size: 0.6rem;
+  height: 10px;
+  line-height: 10px;
+}
+
+.flipdown .rotor-group:nth-child(n + 2):nth-child(-n + 3):before,
+.flipdown .rotor-group:nth-child(n + 2):nth-child(-n + 3):after {
+  left: 46px;
+}
+
+.flipdown .rotor-group:nth-child(n + 2):nth-child(-n + 3):before {
+  bottom: 7px;
+  height: 5px;
+  width: 5px;
+}
+
+.flipdown .rotor-group:nth-child(n + 2):nth-child(-n + 3):after {
+  bottom: 17px;
+  height: 5px;
+  width: 5px;
+}
+
+.flipdown .rotor-leaf-front,
+.flipdown .rotor-top {
+  line-height: 30px;
+}
+
+.flipdown .rotor-leaf,
+.flipdown .rotor {
+  height: 30px;
+}
+
+.flipdown .rotor-leaf-front,
+.flipdown .rotor-leaf-rear,
+.flipdown .rotor-top,
+.flipdown .rotor-bottom,
+.flipdown .rotor:after {
+  height: 15px;
+}
+
+/* app */
+.countdown-container p,
+.countdown-container .button {
+  transition: all 0.2s ease-in-out;
+}
+
+.countdown {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: tomato;
+  padding: 3px 0px;
+  position: relative;
+  /* min-width: 1080px */
+}
+
+.countdown-container {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: 30px;
+  /* flex-wrap: wrap; */
+}
+
+.countdown-container .flipdown {
+  margin: auto;
+}
+
+.countdown-container p {
+  text-align: center;
+  font-weight: 100;
+  margin: 0;
+}
+
+.countdown .buttons {
+  width: 10%;
+  min-width: 200px;
+  align-items: center;
+  display: flex;
+  /* margin-left: 30px; */
+  margin: 0 auto;
+}
+
+.countdown .button {
+  display: inline-block;
+  /* height: 35px; */
+  box-sizing: border-box;
+  line-height: 34px;
+  text-decoration: none;
+  color: #333;
+  padding: 0px 6px;
+  border: solid 2px #333;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: all 0.2s ease-in-out;
+}
+
+.countdown .button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.countdown .button i {
+  margin-right: 5px;
+}
+
+.countdown-container .buttons a {
+  float: none;
+  margin: 0 auto;
+}
+
+.countdown-container .buttons a {
+  display: inline-block;
+}
+
+.countdown  .timer {
+  margin: 0px 10px;
+}
+
+.countdown .before-text,
+.countdown .before-text {
+  align-items: center;
+}
+
+.countdown .after-text p {
+  text-align: left;
+}
+
+.countdown .before-text p {
+  text-align: right;
+}
+
+.countdown-container::after {
+  content: 'x';
+  cursor: pointer;
+  position: absolute;
+  top:5px;
+  right: 10px;
+}
+
+@media (max-width: 675px) {
+  .countdown .before-text,
+  .countdown .after-text,
+  .countdown .timer {
+    width: 100%;
+  }
+
+  .countdown .before-text p,
+  .countdown .after-text p {
+    text-align: center;
+  }
+
+  .countdown-container {
+    flex-wrap: wrap;
+  }
+}

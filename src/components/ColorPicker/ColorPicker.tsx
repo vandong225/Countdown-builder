@@ -9,6 +9,25 @@ type TProps = {
   onColorChange: (color: string) => void;
   title: string;
 };
+const SwatchDiv = styled.div`
+  padding: 5px;
+  background: #fff;
+  border-radius: 1px;
+  boxshadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  cursor: pointer;
+`;
+const PopoverDiv = styled.div`
+  position: absolute;
+  z-index: 99;
+`;
+const CoverDiv = styled.div`
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+`;
 
 const ColorPicker: React.FC<TProps> = ({ color, onColorChange, title }) => {
   const [isOpen, setOpen] = useState(false);
@@ -18,25 +37,6 @@ const ColorPicker: React.FC<TProps> = ({ color, onColorChange, title }) => {
     background: ${color};
     margin-right: 5px;
     border-radius: 20%;
-  `;
-  const SwatchDiv = styled.div`
-    padding: 5px;
-    background: #fff;
-    border-radius: 1px;
-    boxshadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-    display: inline-flex;
-    cursor: pointer;
-  `;
-  const PopoverDiv = styled.div`
-    position: absolute;
-    z-index: 99;
-  `;
-  const CoverDiv = styled.div`
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
   `;
 
   const handleClick = useCallback(() => {
@@ -51,6 +51,10 @@ const ColorPicker: React.FC<TProps> = ({ color, onColorChange, title }) => {
     onColorChange(color.hex);
   }, []);
 
+  const handleChangeColorStr = useCallback((color: string) => {
+    onColorChange(color);
+  }, []);
+
   return (
     <div>
       <TextContainer>
@@ -60,7 +64,7 @@ const ColorPicker: React.FC<TProps> = ({ color, onColorChange, title }) => {
         <PreviewColorDiv />
         <TextField
           value={color}
-          onChange={onColorChange}
+          onChange={handleChangeColorStr}
           label=""
           autoComplete=""
         />

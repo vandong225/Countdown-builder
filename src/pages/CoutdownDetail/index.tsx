@@ -9,11 +9,10 @@ import {
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { HorizontalTabs } from "../../components";
-import SaveBar from "../../components/Bar/SaveBar";
-import { CountdownContent } from "../../components/CountdownDetail/Content/CountdownContent";
-import { CountdownStyles } from "../../components/CountdownDetail/CountdownStyles/CountdownStyles";
-
 import styled from "styled-components";
+import { CountdownBar } from "../../components/CountdownDetail/CountdownBar/CountdownBar";
+import { ButtonCountdown } from "../../components/CountdownDetail/ButtonCountdown/ButtonCountdown";
+import CountdownPreview from "../../components/CountdownPreview/CountdownPreview";
 
 const DivBottom = styled.div`
   margin-top: 5rem;
@@ -21,15 +20,15 @@ const DivBottom = styled.div`
 
 const tabs = [
   {
-    id: "all-customers-1",
-    content: "Styles",
-    accessibilityLabel: "All customers",
-    panelID: "all-customers-content-1",
+    id: "bar-1",
+    content: "Countdown Bar",
+    accessibilityLabel: "Bar",
+    panelID: "bar-content-1",
   },
   {
-    id: "content-1",
-    content: "Content",
-    panelID: "content-content-1",
+    id: "button-1",
+    content: "Button",
+    panelID: "button-content-1",
   },
   {
     id: "timer-1",
@@ -59,7 +58,9 @@ export function CountdownDetail() {
 
       <Layout>
         <Layout.Section>
-          <Card>Preview</Card>
+          <Card>
+            <CountdownPreview />
+          </Card>
         </Layout.Section>
       </Layout>
       <Layout>
@@ -73,8 +74,8 @@ export function CountdownDetail() {
       </Layout>
       <Layout>
         <Layout.Section>
-          {selected === 0 && <CountdownStyles />}
-          {selected === 1 && <CountdownContent />}
+          {selected === 0 && <CountdownBar />}
+          {selected === 1 && <ButtonCountdown />}
         </Layout.Section>
       </Layout>
       {/* <Layout>
