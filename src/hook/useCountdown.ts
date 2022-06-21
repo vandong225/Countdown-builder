@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
-import { setBar, setBtn } from "../store/countdown/countdown";
+import { setBar, setBtn, setTimer } from "../store/countdown/countdown";
 
 export const useCountdown = () => {
   const countdown = useSelector((state: RootState) => state.countdown);
@@ -54,12 +54,26 @@ export const useCountdown = () => {
         dispatch(setBtn({ field: "borderRadius", value }));
       },
 
+      setStartTime: (value: number) => {
+        dispatch(setTimer({ field: "startTime", value }));
+      },
+      setEndTime: (value: number) => {
+        dispatch(setTimer({ field: "endTime", value }));
+      },
+
       //color
       setTextColor: (value: string) => {
         dispatch(setBar({ field: "textColor", value }));
       },
       setBackground: (value: string) => {
         dispatch(setBar({ field: "background", value }));
+      },
+
+      setTextColorTimer: (value: string) => {
+        dispatch(setTimer({ field: "textColor", value }));
+      },
+      setBackgroundTimer: (value: string) => {
+        dispatch(setTimer({ field: "background", value }));
       },
 
       //behavior:
