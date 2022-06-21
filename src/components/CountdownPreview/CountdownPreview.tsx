@@ -8,7 +8,7 @@ type TProps = {};
 
 const CountdownPreview: React.FC<TProps> = ({}) => {
   const { countdown } = useCountdown();
-  const { bar, btn } = countdown;
+  const { bar, btn, timer } = countdown;
   const {
     beforeText,
     afterText,
@@ -16,7 +16,7 @@ const CountdownPreview: React.FC<TProps> = ({}) => {
     textColor,
     backgroundOnHover,
     textColorOnHover,
-    enableClose
+    enableClose,
   } = bar;
   const {
     content,
@@ -25,11 +25,25 @@ const CountdownPreview: React.FC<TProps> = ({}) => {
     backgroundOnHover: backgroundOnHoverBtn,
     textColorOnHover: textColorOnHoverBtn,
     enable,
+    borderRadius,
+    padding: paddingBtn,
   } = btn;
 
+  const {
+    startTime,
+    endTime,
+    background: bgTimer,
+    textColor: textTimerColor,
+  } = timer;
+
   useEffect(() => {
-    var twoDaysFromNow = new Date().getTime() / 1000 + 86400 * 2 + 1;
-    new FlipDown(twoDaysFromNow)
+    console.log(
+      endTime,
+      startTime,
+      (endTime - startTime) / 1000,
+      new Date().getTime() / 1000 + 86400 * 2 + 1
+    );
+    new FlipDown(endTime / 1000)
       .start()
 
       // Do something when the countdown ends
@@ -54,23 +68,38 @@ const CountdownPreview: React.FC<TProps> = ({}) => {
     .countdown:hover {
       background-color: ${backgroundOnHover};
     }
-    .countdown-container p:hover {
+    .countdown:hover p {
       color: ${textColorOnHover};
     }
     .countdown-container::after {
-      display: ${enableClose ? 'block' : 'none'};
+      display: ${enableClose ? "block" : "none"};
     }
-
-
-
 
     .countdown .button {
       background-color: ${btnBgColor};
       color: ${textColorBtn};
+      border-color: ${textColorBtn};
+      border-radius: ${borderRadius};
+      padding: ${paddingBtn};
     }
     .countdown .button:hover {
       background-color: ${backgroundOnHoverBtn};
       color: ${textColorOnHoverBtn};
+    }
+
+    .flipdown .rotor,
+    .flipdown .rotor-top,
+    .flipdown .rotor-leaf-front,
+    .flipdown .rotor-bottom,
+    .flipdown .rotor-leaf-rear,
+    .flipdown .rotor-group:nth-child(n + 2):nth-child(-n + 3):before,
+    .flipdown .rotor-group:nth-child(n + 2):nth-child(-n + 3):after {
+      color: ${textTimerColor};
+      background-color: ${bgTimer};
+    }
+
+    .flipdown .rotor-group-heading:before {
+      color: ${textTimerColor};
     }
   `;
 

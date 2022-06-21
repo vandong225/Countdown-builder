@@ -30,9 +30,6 @@ export const ButtonContent: React.FC<TProps> = () => {
               onChange={setPaddingBtn}
               value={padding}
               autoComplete=""
-              step={1}
-              type="number"
-              prefix="px"
             />
           </FormLayout.Group>
           <FormLayout.Group>
@@ -50,9 +47,6 @@ export const ButtonContent: React.FC<TProps> = () => {
               onChange={setBorderRadiusBtn}
               value={borderRadius}
               autoComplete=""
-              step={1}
-              type="number"
-              prefix="px"
             />
           </FormLayout.Group>
         </FormLayout>

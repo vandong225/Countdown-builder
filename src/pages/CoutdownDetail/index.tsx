@@ -13,6 +13,7 @@ import styled from "styled-components";
 import { CountdownBar } from "../../components/CountdownDetail/CountdownBar/CountdownBar";
 import { ButtonCountdown } from "../../components/CountdownDetail/ButtonCountdown/ButtonCountdown";
 import CountdownPreview from "../../components/CountdownPreview/CountdownPreview";
+import TimerSettings from "../../components/CountdownDetail/Timer/TimerSettings";
 
 const DivBottom = styled.div`
   margin-top: 5rem;
@@ -76,6 +77,7 @@ export function CountdownDetail() {
         <Layout.Section>
           {selected === 0 && <CountdownBar />}
           {selected === 1 && <ButtonCountdown />}
+          {selected === 2 && <TimerSettings />}
         </Layout.Section>
       </Layout>
       {/* <Layout>

@@ -3,6 +3,7 @@ import {
   ICountdown,
   IBarCountdown,
   IButtonCountdown,
+  ITimerCountdown,
 } from "../../../shares/interfaces/countdown";
 
 const initialState: ICountdown = {
@@ -35,8 +36,10 @@ const initialState: ICountdown = {
     textColorOnHover: "#fff",
   },
   timer: {
-    background: "",
-    textColor: "",
+    background: "#333",
+    textColor: "#fff",
+    startTime: Date.now(),
+    endTime: Date.now(),
   },
 };
 
@@ -64,10 +67,20 @@ export const countdownSlice = createSlice({
       const { field, value } = action.payload;
       (state.btn[field] as any) = value;
     },
+    setTimer: (
+      state,
+      action: PayloadAction<{
+        field: keyof ITimerCountdown;
+        value: string | number | boolean;
+      }>
+    ) => {
+      const { field, value } = action.payload;
+      (state.timer[field] as any) = value;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setBar, setBtn } = countdownSlice.actions;
+export const { setBar, setBtn, setTimer } = countdownSlice.actions;
 
 export default countdownSlice.reducer;

@@ -31,6 +31,8 @@ export interface IButtonCountdown {
 export interface ITimerCountdown {
   background: string;
   textColor: string;
+  startTime: number;
+  endTime: number;
 }
 
 export interface ICountdown {

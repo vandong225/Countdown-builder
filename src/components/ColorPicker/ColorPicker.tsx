@@ -37,6 +37,7 @@ const ColorPicker: React.FC<TProps> = ({ color, onColorChange, title }) => {
     background: ${color};
     margin-right: 5px;
     border-radius: 20%;
+    border: 2px solid #ada6a6
   `;
 
   const handleClick = useCallback(() => {
