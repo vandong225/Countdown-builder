@@ -20,7 +20,7 @@
     "node": ">=16.13.0"
   },
   "dependencies": {
-    "@apollo/client": "^3.5.10",
+    "@apollo/client": "^3.7.1",
     "@reduxjs/toolkit": "^1.8.2",
     "@shopify/app-bridge": "^2.0.22",
     "@shopify/app-bridge-react": "^2.0.26",
